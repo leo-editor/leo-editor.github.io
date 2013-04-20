@@ -4,7 +4,7 @@
         <title>Leo Blog - plugins</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
-                <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Leo Blog Atom Feed" />
+                <link href="http://leo-editor.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Leo Blog Atom Feed" />
                 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -30,8 +30,52 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../valuespace-intro.html">Valuespace, the spreadsheet in your outliner</a></h1> 
+                    <h1 class="entry-title"><a href="../screen_capture.html">screen_capture</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2013-04-20T00:00:00">
+                Sat 20 April 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/terry-brown.html">Terry Brown</a>
+        </address>
+        <p>In <a href="../category/plugins.html">plugins</a>. </p>
+<p>tags: <a href="../tag/plugins.html">plugins</a></p>
+</footer><!-- /.post-info --><p>Today I pushed a screen_capture plugin which adds two new
+commands to Leo, <tt class="docutils literal">screen_capture_now</tt> and <tt class="docutils literal">screen_capture_5sec</tt>.
+A PNG image of the main Leo window, without window manager decorations,
+is saved in <tt class="docutils literal"><span class="pre">$HOME/.leo/screen_captures/YYYY-MM-DDTHH:MM:SS.png</span></tt>
+Here's an example:</p>
+<img alt="/images/plugins/screen_capture/screen_capture0.png" src="/images/plugins/screen_capture/screen_capture0.png" />
+<p><tt class="docutils literal">screen_capture_now</tt> captures an image immediately,
+<tt class="docutils literal">screen_capture_5sec</tt> waits five seconds, so you can position the
+pointer, open menus etc.  The only feedback is in the console, as
+messages in the log would be distracting in the captured image.</p>
+<p>Oddly enough, all through development (this project started at the 2013
+Leo Sprint), the mouse pointer was not captured. This is not at all
+unusual for screen capture software. The plugin includes code to draw a
+pointer (from <tt class="docutils literal"><span class="pre">.../Icons/recorder/pointer.png</span></tt>) on the grabbed image.
+But at time of writing the pointer is being captured, and that code is
+disabled. My guess is the pointer won't be captured in all environments
+and a <tt class="docutils literal">&#64;setting</tt> will be needed to enable pointer drawing by the
+plugin.</p>
+                </article>
+                            </aside><!-- /#featured -->
+                            <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+                                                
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                    <h1><a href="../valuespace-intro.html" rel="bookmark"
+                           title="Permalink to Valuespace, the spreadsheet in your outliner">Valuespace, the spreadsheet in your outliner</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2010-10-03T10:20:00">
                 Sun 03 October 2010
         </abbr>
@@ -41,21 +85,15 @@
         </address>
         <p>In <a href="../category/plugins.html">plugins</a>. </p>
 <p>tags: <a href="../tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info --><div class="section" id="introduction">
-<h2>Introduction</h2>
-<p>I will start with a bit of history. Few years ago,
-I got interested in the then-budding &quot;IPython notebook&quot; project,
-and saw that Leo could be a way to reach that goal with minimal
-amount of programming.</p>
-<p>(Right now, IPython notebook is a phenomenal succes story
-implemented with web technologies, but that's another story).</p>
-</div>
-                </article>
-                                    <p class="paginator">
+</footer><!-- /.post-info -->                <p class="first last">Introducing the valuespace plugin</p>
+
+                <a class="readmore" href="../valuespace-intro.html">read more</a>
+                                </div><!-- /.entry-content -->
+            </article></li>
+                            </ol><!-- /#posts-list -->
+                            <p class="paginator">
         Page 1 / 1
     </p>
-                            </aside><!-- /#featured -->
-                                                </ol><!-- /#posts-list -->
                         </section><!-- /#content -->
                     <section id="extras" class="body">
                         <div class="blogroll">
@@ -70,7 +108,7 @@ implemented with web technologies, but that's another story).</p>
                                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            <li><a href="http://leo-editor.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="#">You can add links in your config file</a></li>
                                                     <li><a href="#">Another social link</a></li>

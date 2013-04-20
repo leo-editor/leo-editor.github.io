@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Leo Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2010-10-03T10:20:00+02:00</updated><entry><title>Valuespace, the spreadsheet in your outliner</title><link href="/valuespace-intro.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Ville Vainio</name></author><id>tag:,2010-10-03:valuespace-intro.html</id><summary type="html">&lt;div class="section" id="introduction"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Leo Blog</title><link href="http://leo-editor.github.io/" rel="alternate"></link><link href="http://leo-editor.github.io/feeds/all.atom.xml" rel="self"></link><id>http://leo-editor.github.io/</id><updated>2013-04-20T00:00:00+02:00</updated><entry><title>screen_capture</title><link href="http://leo-editor.github.io/screen_capture.html" rel="alternate"></link><updated>2013-04-20T00:00:00+02:00</updated><author><name>Terry Brown</name></author><id>tag:leo-editor.github.io,2013-04-20:screen_capture.html</id><summary type="html">&lt;p&gt;Today I pushed a screen_capture plugin which adds two new
+commands to Leo, &lt;tt class="docutils literal"&gt;screen_capture_now&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;screen_capture_5sec&lt;/tt&gt;.
+A PNG image of the main Leo window, without window manager decorations,
+is saved in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$HOME/.leo/screen_captures/YYYY-MM-DDTHH:MM:SS.png&lt;/span&gt;&lt;/tt&gt;
+Here's an example:&lt;/p&gt;
+&lt;img alt="/images/plugins/screen_capture/screen_capture0.png" src="/images/plugins/screen_capture/screen_capture0.png" /&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;screen_capture_now&lt;/tt&gt; captures an image immediately,
+&lt;tt class="docutils literal"&gt;screen_capture_5sec&lt;/tt&gt; waits five seconds, so you can position the
+pointer, open menus etc.  The only feedback is in the console, as
+messages in the log would be distracting in the captured image.&lt;/p&gt;
+&lt;p&gt;Oddly enough, all through development (this project started at the 2013
+Leo Sprint), the mouse pointer was not captured. This is not at all
+unusual for screen capture software. The plugin includes code to draw a
+pointer (from &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;.../Icons/recorder/pointer.png&lt;/span&gt;&lt;/tt&gt;) on the grabbed image.
+But at time of writing the pointer is being captured, and that code is
+disabled. My guess is the pointer won't be captured in all environments
+and a &lt;tt class="docutils literal"&gt;&amp;#64;setting&lt;/tt&gt; will be needed to enable pointer drawing by the
+plugin.&lt;/p&gt;
+</summary><category term="plugins"></category></entry><entry><title>Valuespace, the spreadsheet in your outliner</title><link href="http://leo-editor.github.io/valuespace-intro.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Ville Vainio</name></author><id>tag:leo-editor.github.io,2010-10-03:valuespace-intro.html</id><summary type="html">&lt;div class="section" id="introduction"&gt;
 &lt;h2&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I will start with a bit of history. Few years ago,
 I got interested in the then-budding &amp;quot;IPython notebook&amp;quot; project,
