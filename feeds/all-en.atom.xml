@@ -4,7 +4,7 @@ commands to Leo, &lt;tt class="docutils literal"&gt;screen_capture_now&lt;/tt&gt
 A PNG image of the main Leo window, without window manager decorations,
 is saved in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$HOME/.leo/screen_captures/YYYY-MM-DDTHH:MM:SS.png&lt;/span&gt;&lt;/tt&gt;
 Here's an example:&lt;/p&gt;
-&lt;img alt="static/images/plugins/screen_capture/screen_capture0.png" src="static/images/plugins/screen_capture/screen_capture0.png" /&gt;
+&lt;img alt="/static/images/plugins/screen_capture/screen_capture0.png" src="/static/images/plugins/screen_capture/screen_capture0.png" /&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;screen_capture_now&lt;/tt&gt; captures an image immediately,
 &lt;tt class="docutils literal"&gt;screen_capture_5sec&lt;/tt&gt; waits five seconds, so you can position the
 pointer, open menus etc.  The only feedback is in the console, as
