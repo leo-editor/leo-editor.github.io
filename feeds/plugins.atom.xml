@@ -105,6 +105,7 @@ HELLO WORLD
 &lt;div class="section" id="there-is-more"&gt;
 &lt;h3&gt;There is more&lt;/h3&gt;
 &lt;p&gt;There is more things to write about the plugin, but I thought it's better to publish blog post now, rather than wait until I get it all written down. Part 2 in this series will come in due time.&lt;/p&gt;
+&lt;p&gt;In the meantime, the best place to get familiar with the functionality is to check out the &amp;quot;contrib&amp;quot; branch of Leo (&lt;a class="reference external" href="https://code.launchpad.net/~leo-editor-team/leo-editor/contrib"&gt;https://code.launchpad.net/~leo-editor-team/leo-editor/contrib&lt;/a&gt;), and study the valuespace_example.leo outline carefully.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="plugins"></category></entry><entry><title>screen_capture</title><link href="http://leo-editor.github.io/screen_capture.html" rel="alternate"></link><updated>2013-04-20T00:00:00+02:00</updated><author><name>Terry Brown</name></author><id>tag:leo-editor.github.io,2013-04-20:screen_capture.html</id><summary type="html">&lt;p&gt;Today I pushed a screen_capture plugin which adds two new
