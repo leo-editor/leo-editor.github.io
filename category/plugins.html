@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Leo Blog - plugins</title>
         <link rel="stylesheet" href="http://leo-editor.github.io/theme/css/main.css">
-                <link href="http://leo-editor.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Leo Blog Atom Feed" />
+                <link href="http://leo-editor.github.io/feeds\all.atom.xml" type="application/atom+xml" rel="alternate" title="Leo Blog Atom Feed" />
                 
         <!--[if IE]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,10 +23,102 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="http://leo-editor.github.io/valuespace-intro.html">Valuespace, the spreadsheet in your outliner</a></h1> 
+                    <h1 class="entry-title"><a href="http://leo-editor.github.io/custom_printing.html">Custom Printing with printing.py</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2013-05-13T23:02:00">
-                ma 13 toukokuu 2013
+        <abbr class="published" title="2013-09-20T00:00:00">
+                Fri 20 September 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="http://leo-editor.github.io/author/jacob-peck.html">Jacob Peck</a>
+        </address>
+        <p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
+<p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
+</footer><!-- /.post-info --><p>Printing with the printing.py plugin is fairly simple, and decently flexible.  However, sometimes you want more fine-grained control over the output of your print job.  For these situations, you can use a script.</p>
+<div class="section" id="step-0-get-your-imports-right">
+<h2>Step 0: Get your imports right</h2>
+<p>We'll be using stuff from PyQt for this, specifically QtGui.  Be sure to import them at the top of your script:</p>
+<pre class="literal-block">
+from PyQt4 import QtGui
+</pre>
+</div>
+<div class="section" id="step-1-creating-your-document">
+<h2>Step 1: Creating your Document</h2>
+<p>Printing in Leo is handled by PyQt, which provides nice tools for printing QTextDocuments, which are in turn just HTML documents wrapped in a special object.</p>
+<p>To that effect, we create our document (what follows is just a minimal example):</p>
+<pre class="literal-block">
+mydoc = '''
+&lt;html&gt;
+&lt;h1&gt;Hello!&lt;/h1&gt;
+&lt;p&gt;Documents to be printed in Leo are just HTML documents, wrapped up in a QTextDocument object.&lt;/p&gt;
+&lt;/html&gt;
+'''
+</pre>
+<p>Note that the above string can be <em>any</em> valid HTML.</p>
+<p>And then we wrap it in a QTextDocument:</p>
+<pre class="literal-block">
+qtextdoc = QtGui.QTextDocument()
+qtextdoc.setHtml(mydoc)
+</pre>
+</div>
+<div class="section" id="step-2-print-it">
+<h2>Step 2: Print it!</h2>
+<p>Finally, we use the printing.py plugin to preview the document to be printed:</p>
+<pre class="literal-block">
+c.thePrintingController.print_preview_doc(qtextdoc)
+</pre>
+<p>You can see how the document would look when printed, and if you're satisfied, you can click on the print button from here.  If not, close the dialog, and nothing will be printed.  Easy as pie!</p>
+</div>
+<div class="section" id="the-full-script">
+<h2>The full script</h2>
+<p>Here's the full script:</p>
+<pre class="literal-block">
+&#64;language python
+ from PyQt4 import QtGui
+
+ mydoc = '''
+ &lt;html&gt;
+ &lt;h1&gt;Hello!&lt;/h1&gt;
+ &lt;p&gt;Documents to be printed in Leo are just HTML documents, wrapped up in a QTextDocument object.&lt;/p&gt;
+ &lt;/html&gt;
+ '''
+
+ qtextdoc = QtGui.QTextDocument()
+ qtextdoc.setHtml(mydoc)
+
+ c.thePrintingController.print_preview_doc(qtextdoc)
+</pre>
+</div>
+<div class="section" id="optional-stylesheets">
+<h2>Optional: Stylesheets</h2>
+<p>QTextDocuments can be styled by CSS stylesheets, if you desire.  You can incorporate those with a call to qtextdoc.setDefaultStyleSheet, which takes in a string.  For example:</p>
+<pre class="literal-block">
+css = '''
+h1 {color: #f00}
+p {color: #0f0}
+'''
+qtextdoc.setDefaultStyleSheet(css)
+</pre>
+</div>
+                </article>
+                            </aside><!-- /#featured -->
+                            <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+                                                
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                    <h1><a href="http://leo-editor.github.io/valuespace-intro.html" rel="bookmark"
+                           title="Permalink to Valuespace, the spreadsheet in your outliner">Valuespace, the spreadsheet in your outliner</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2013-05-10T22:34:00">
+                Fri 10 May 2013
         </abbr>
 
                 <address class="vcard author">
@@ -34,122 +126,12 @@
         </address>
         <p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
 <p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info --><div class="section" id="introduction">
-<h2>Introduction</h2>
-<p>Do you mostly use Leo as an outliner, &quot;thought organizer&quot; or data analysis tool? If so, this post can be useful to you. Valuespace won't help you much if you use Leo mostly as an IDE or code editor.</p>
-<p>I could easily wax philosophical about the valuespace plugin, but I can do it in a later blog post. Here, I'll just go ahead and tell what it does.</p>
-<p>Valuespace makes .leo document <em>executable</em>, turning the whole leo document to one big python &quot;script&quot; that assigns values to variables, uses those values to execute computations, and renders values of computations in the document itself.</p>
-<p>The way to tell leo to execute the current document is to run alt-x vs-update.</p>
-<div class="section" id="embed-scripts-in-body-text">
-<h3>Embed scripts in body text</h3>
-<p>Clearly, it makes no sense to execute everything in a .leo document that mostly consists of human readable text. To mark a part of body text as executable, use &#64;x in the beginning of line.</p>
-<p>There are two variants of this. Single line statements look like this:</p>
-<div class="highlight"><pre><span class="n">This</span> <span class="ow">is</span> <span class="n">some</span> <span class="n">text</span>
-<span class="n">that</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">get</span> <span class="n">executed</span>
-<span class="nd">@x</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">more</span> <span class="n">text</span> <span class="n">follows</span>
-</pre></div>
-<p>Observant reader will not be surprised by what it does.</p>
-<p>Running large swatches of text is a natural extension of this notation:</p>
-<div class="highlight"><pre><span class="n">Some</span> <span class="n">text</span> <span class="n">that</span> <span class="n">doesn</span><span class="s">&#39;t get executed</span>
+</footer><!-- /.post-info -->                <p class="first last">Introducing the valuespace plugin</p>
 
-<span class="nd">@x</span> <span class="p">{</span>
-
-<span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
-<span class="n">bar</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="nd">@x</span> <span class="p">}</span>
-
-<span class="n">more</span> <span class="n">text</span> <span class="n">that</span> <span class="n">doesn</span><span class="s">&#39;t get executed</span>
-</pre></div>
-<p>Note that leo &quot;tangling&quot; (parsing of  <cite>&lt;&lt; section &gt;&gt;</cite> blocks and <cite>&#64;others</cite> directives) is run on the executed script, so if you want to split your python code to a deeper Leo tree, you can do something like this:</p>
-<div class="highlight"><pre><span class="nd">@x</span> <span class="p">{</span>
-        <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
-
-        <span class="nd">@others</span>
-<span class="nd">@x</span> <span class="p">}</span>
-</pre></div>
-<p>This will interpret (and run) the subtree after doing the imports. For data analysis, you could e.g. have a first node called &quot;prelude&quot;, looking much like the snippet above, and in the subtree you could declare all the functions and classes used in the rest of the document.</p>
-<p>Sometimes, you don't really want to run a block, but rather assign it
-to a python variable for further processing. This extension of <cite>&#64;x</cite> notation helps here:</p>
-<div class="highlight"><pre><span class="nd">@x</span> <span class="o">=</span><span class="n">somevar</span> <span class="p">{</span>
-<span class="n">text</span>
-<span class="n">that</span>
-<span class="n">gets</span> <span class="n">assigned</span> <span class="n">to</span> <span class="s">&#39;somevar&#39;</span>
-<span class="k">as</span> <span class="n">string</span>
-<span class="nd">@x</span> <span class="p">}</span>
-</pre></div>
-<p>In consecutive script blocks, you would now be free to reference the python variable 'somevar'.</p>
-<p>Now, sometimes the variable should be a list, and you want to accumulate blocks of text to that list. Further extension of the notation looks like this:</p>
-<div class="highlight"><pre><span class="nd">@x</span> <span class="o">=</span><span class="n">mylist</span><span class="o">+</span> <span class="p">{</span>
-<span class="n">some</span> <span class="n">text</span>
-<span class="nd">@x</span> <span class="p">}</span>
-
-<span class="n">Ignored</span> <span class="n">text</span>
-
-<span class="nd">@x</span> <span class="o">=</span><span class="n">mylist</span><span class="o">+</span> <span class="p">{</span>
-<span class="n">more</span> <span class="n">text</span>
-<span class="nd">@x</span> <span class="p">}</span>
-</pre></div>
-<p>Now, assuming <cite>mylist</cite> was instantiated as a list earlier, this would produce the final value of mylist as</p>
-<div class="highlight"><pre><span class="p">[</span><span class="s">&#39;some text&#39;</span><span class="p">,</span> <span class="s">&#39;more text&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<div class="section" id="slurping-data-from-external-files">
-<h3>Slurping data from external files</h3>
-<p>If you processing data, you often want it to reside outside .leo document in external files (and follow the history separately version control, etc.). Valuespace currently has built in support for JSON and
-yaml files.</p>
-<p>Let's say you have JSON formatted data in foobar.json. To slurp in that data and store it in variable &quot;foobar&quot;, create a node with headline <cite>&#64;vsi foobar.json</cite>. <cite>&#64;vsi</cite> stands for &quot;valuespace input&quot;, and the extension .json instructs Leo to parse the file as json. For yaml files, use the extension .yaml.</p>
-<p>Symmetrically, <cite>&#64;vso foobar.json</cite> instructs Leo to grab the value of variable 'foobar' and dump its value serialized as JSON to file 'foobar.json'</p>
-<p>In addition to reading or writing the data, both &#64;vsi and &#64;vso store the data as read/writted in the body text of the node. If you edit the body text, the changes are silently overwritten the next time you do <cite>vs-update</cite>.</p>
-</div>
-<div class="section" id="making-data-visible-in-the-outline">
-<h3>Making data visible in the outline</h3>
-<p>It's often useful to display the data in your Leo outline. You can use <cite>&#64;r expr</cite> construct to evaluate a python expression and put the result of evaluation in the body of the node.</p>
-<p>E.g.</p>
-<p><strong>&#64;r mystr.upper()</strong></p>
-<pre class="literal-block">
-HELLO WORLD
-</pre>
-</div>
-<div class="section" id="anchors">
-<h3>Anchors</h3>
-<p>To make valuespace scale to large Leo documents, not every node gets parsed for &#64;x contstructs. To instruct vs-update to scan the body of a node for &#64;x consructs, you need to add an &quot;anchor&quot; (node with &#64;a as headline) as a child of that node. So your outline would look like this:</p>
-<ul class="simple">
-<li>Foo</li>
-<li>Bar<ul>
-<li>Baz</li>
-<li>&#64;a</li>
-</ul>
-</li>
-<li>Quux</li>
-<li>Xyzzy</li>
-<li>&#64;r myvar</li>
-</ul>
-<p>Here, only node &quot;Bar&quot; would have its body text scanned during vs-update. <cite>&#64;r myvar</cite> would get evaluated despite the lack of the anchor, since it's headline-level construct that doesn't require parsing of the body.</p>
-<p>You can also give anchors a name; if you have an outline like this:</p>
-<ul class="simple">
-<li>Foo</li>
-<li>Bar<ul>
-<li>&#64;a myvar</li>
-</ul>
-</li>
-</ul>
-<p>the contents (body) of node &quot;Bar&quot; would get assigned to variable 'myvar' (as string), <strong>and</strong> the body of node Bar gets scanned for &#64;x tags.</p>
-</div>
-<div class="section" id="there-is-more">
-<h3>There is more</h3>
-<p>There is more things to write about the plugin, but I thought it's better to publish blog post now, rather than wait until I get it all written down. Part 2 in this series will come in due time.</p>
-<p>In the meantime, the best place to get familiar with the functionality is to check out the &quot;contrib&quot; branch of Leo (<a class="reference external" href="https://code.launchpad.net/~leo-editor-team/leo-editor/contrib">https://code.launchpad.net/~leo-editor-team/leo-editor/contrib</a>), and study the valuespace_example.leo outline carefully.</p>
-</div>
-</div>
-<p>There are <a href="http://leo-editor.github.io/valuespace-intro.html#disqus_thread">comments</a>.</p>                </article>
-                            </aside><!-- /#featured -->
-                            <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-                                                
+                <a class="readmore" href="http://leo-editor.github.io/valuespace-intro.html">read more</a>
+                                </div><!-- /.entry-content -->
+            </article></li>
+                            
 
                  
                         <li><article class="hentry">    
@@ -161,7 +143,7 @@ HELLO WORLD
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-04-20T00:00:00">
-                la 20 huhtikuu 2013
+                Sat 20 April 2013
         </abbr>
 
                 <address class="vcard author">
@@ -172,7 +154,7 @@ HELLO WORLD
 </footer><!-- /.post-info -->                <p class="first last">Captures images of the Leo window</p>
 
                 <a class="readmore" href="http://leo-editor.github.io/screen_capture.html">read more</a>
-                <p>There are <a href="http://leo-editor.github.io/screen_capture.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+                                </div><!-- /.entry-content -->
             </article></li>
                             </ol><!-- /#posts-list -->
                             <p class="paginator">
@@ -190,7 +172,7 @@ HELLO WORLD
                                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="http://leo-editor.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                            <li><a href="http://leo-editor.github.io/feeds\all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
                             
                                                 </ul>
                 </div><!-- /.social -->
@@ -204,14 +186,5 @@ HELLO WORLD
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
-<script type="text/javascript">
-    var disqus_shortname = 'leo-blog';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
 </body>
 </html>
