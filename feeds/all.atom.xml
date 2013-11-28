@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Leo Blog</title><link href="http://leo-editor.github.io/" rel="alternate"></link><link href="http://leo-editor.github.io/feeds%5Call.atom.xml" rel="self"></link><id>http://leo-editor.github.io/</id><updated>2013-11-04T00:00:00+01:00</updated><entry><title>Nodewatch for Productivity</title><link href="http://leo-editor.github.io/nodewatch_productivity.html" rel="alternate"></link><updated>2013-11-04T00:00:00+01:00</updated><author><name>Jacob Peck</name></author><id>tag:leo-editor.github.io,2013-11-04:nodewatch_productivity.html</id><summary type="html">&lt;p&gt;Over on my personal blog, I've posted a &lt;a class="reference external" href="http://blog.suspended-chord.info/2013/11/04/nodewatch-for-productivity/"&gt;quick example of how I use nodewatch.py to stay productive&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Leo Blog</title><link href="http://leo-editor.github.io/" rel="alternate"></link><link href="http://leo-editor.github.io/feeds%5Call.atom.xml" rel="self"></link><id>http://leo-editor.github.io/</id><updated>2013-11-28T00:00:00+01:00</updated><entry><title>Registering Leo with Windows</title><link href="http://leo-editor.github.io/register_leo.html" rel="alternate"></link><updated>2013-11-28T00:00:00+01:00</updated><author><name>Matt Wilkie</name></author><id>tag:leo-editor.github.io,2013-11-28:register_leo.html</id><summary type="html">&lt;p&gt;&lt;em&gt;a post in progress&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Installing Leo using the standard setup program from Sourceforge does nice things like create Start Menu &amp;amp; Desktop shortcuts and enable open Leo files with a simple double-click. For those that like to run from source code or a portable drive there are &lt;a href="http://leoeditor.com/installing.html#installing-from-sources-windows"&gt;manual instructions&lt;/a&gt; for doing the same, but it's fiddly and rapidly gets old. Why repeat when automation is possible?&lt;/p&gt;
+&lt;p&gt;Introducing &lt;strong&gt;&lt;a href="http://bazaar.launchpad.net/~leo-editor-team/leo-editor/trunk3/view/head:/leo/scripts/register-leo.leox"&gt;register-leo.leox&lt;/a&gt;&lt;/strong&gt; (and &lt;a href="http://bazaar.launchpad.net/~leo-editor-team/leo-editor/trunk3/view/head:/leo/scripts/unregister-leo.leox"&gt;unregister-leo&lt;/a&gt;): which creates the necessary Windows registry keys for integration with Explorer and friends. After running this script .leo and .leox files are shown with the Leo icon, and double-clicking on them will open them in Leo.&lt;/p&gt;
+&lt;p&gt;To use: open a command shell with administrative rights, and run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    d:\path\to\python.exe d:\path\to\leo\launchLeo.py e:\path\to\register-leo.leox
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;All in one step: you can try the &lt;a href="http://bazaar.launchpad.net/~leo-editor-team/leo-editor/trunk3/view/head:/leo/scripts/elevate.py"&gt;&lt;code&gt;elevate.py&lt;/code&gt;&lt;/a&gt; script which will ask for Admin privileges from a regular command shell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    d:\path\to\python.exe d:\path\to\leo\leo\scripts\elevate.py e:\path\to\register-leo.leox
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Eventually I'd like to see this activated from a Settings/Options/Preferences menu. Then we can distribute daily and portable builds of Leo and still have easy (dis)integration with the host (on Windows) and not rely so heavily on stable builds and installers, which are few and long between 'cause of the pain in building them.&lt;/p&gt;
+&lt;p&gt;Developed and tested with Python 2.7, Leo 4.10 and Win7 x64. Py3 needs work.&lt;/p&gt;
+&lt;p&gt;Feedback/testing/patches welcome (see mailing list).&lt;/p&gt;
+&lt;p&gt;-Matt Wilkie&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;Notes&lt;/h2&gt;
+&lt;h4&gt;What's this &lt;code&gt;.leox&lt;/code&gt;?&lt;/h4&gt;
+&lt;p&gt;I created this convention so I could easily distinguish regular Leo files, which can be about anything, and Leo files which are runnable Leo scripts. The intention is to allow for things like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;    leo --script d:\path\to\scripts\register-leo.leox
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At present double-clicking a .leox opens in edit mode. It occurs to me as I write this it could be changed so it runs automatically by adding, &lt;code&gt;--script&lt;/code&gt; (quotes might need fiddling with):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ftype&lt;/span&gt; &lt;span class="n"&gt;LeoFile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;C:\Python27\python.exe&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;B:&lt;/span&gt;&lt;span class="se"&gt;\a&lt;/span&gt;&lt;span class="s"&gt;pps\leo\launchLeo.py&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;--script &amp;quot;&amp;quot;%1&amp;quot;&amp;quot; %*&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Any .leo is a launcher&lt;/h4&gt;
+&lt;p&gt;Association has the added benefit of removing the need for most to create a batch file and then figure out where in PATH to store it in order to use Leo. As a matter of fact, any .leo file becomes the equivalent of launchLeo.py, just try this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%homedrive%\homepath%\workbook.leo x:\path\to\some\other\leofile.leo&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;or to build on the previous note:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;%homedrive%\homepath%\workbook.leo --script ..\scripts\unregister-leo.leox&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Resources used&lt;/h3&gt;
+&lt;p&gt;http://superuser.com/questions/88491/force-cmd-exe-to-run-as-admin/&lt;br /&gt;
+http://stackoverflow.com/questions/2331690/how-to-set-a-icon-file-while-creating-file&lt;br /&gt;
+http://stackoverflow.com/questions/771689/how-can-i-set-an-icon-for-my-own-file-extension&lt;/p&gt;</summary><category term="Windows"></category><category term="install"></category><category term="scripts"></category></entry><entry><title>Nodewatch for Productivity</title><link href="http://leo-editor.github.io/nodewatch_productivity.html" rel="alternate"></link><updated>2013-11-04T00:00:00+01:00</updated><author><name>Jacob Peck</name></author><id>tag:leo-editor.github.io,2013-11-04:nodewatch_productivity.html</id><summary type="html">&lt;p&gt;Over on my personal blog, I've posted a &lt;a class="reference external" href="http://blog.suspended-chord.info/2013/11/04/nodewatch-for-productivity/"&gt;quick example of how I use nodewatch.py to stay productive&lt;/a&gt;.&lt;/p&gt;
 </summary><category term="plugins"></category></entry><entry><title>Leo editor bookmarks plugin demo on Vimeo</title><link href="http://leo-editor.github.io/bookmarks_video.html" rel="alternate"></link><updated>2013-10-24T00:00:00+02:00</updated><author><name>Terry Brown</name></author><id>tag:leo-editor.github.io,2013-10-24:bookmarks_video.html</id><summary type="html">&lt;iframe src="//player.vimeo.com/video/77720098" width="500" height="363" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="http://vimeo.com/77720098"&gt;Leo editor bookmarks plugin demo.&lt;/a&gt; from &lt;a href="http://vimeo.com/user8438028"&gt;Terry Brown&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="plugins"></category></entry><entry><title>Custom Printing with printing.py</title><link href="http://leo-editor.github.io/custom_printing.html" rel="alternate"></link><updated>2013-09-20T00:00:00+02:00</updated><author><name>Jacob Peck</name></author><id>tag:leo-editor.github.io,2013-09-20:custom_printing.html</id><summary type="html">&lt;p&gt;Printing with the printing.py plugin is fairly simple, and decently flexible.  However, sometimes you want more fine-grained control over the output of your print job.  For these situations, you can use a script.&lt;/p&gt;
 &lt;div class="section" id="step-0-get-your-imports-right"&gt;
 &lt;h2&gt;Step 0: Get your imports right&lt;/h2&gt;
@@ -175,7 +219,7 @@ commands to Leo, &lt;tt class="docutils literal"&gt;screen_capture_now&lt;/tt&gt
 A PNG image of the main Leo window, without window manager decorations,
 is saved in &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;$HOME/.leo/screen_captures/YYYY-MM-DDTHH:MM:SS.png&lt;/span&gt;&lt;/tt&gt;
 Here's an example:&lt;/p&gt;
-&lt;img alt="/static/images/plugins/screen_capture/screen_capture0.png" src="/static/images/plugins/screen_capture/screen_capture0.png" /&gt;
+&lt;img alt="" src="/static/images/plugins/screen_capture/screen_capture0.png" /&gt;
 &lt;p&gt;&lt;tt class="docutils literal"&gt;screen_capture_now&lt;/tt&gt; captures an image immediately,
 &lt;tt class="docutils literal"&gt;screen_capture_5sec&lt;/tt&gt; waits five seconds, so you can position the
 pointer, open menus etc.  The only feedback is in the console, as

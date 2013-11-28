@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Leo Blog</title>
+        <title>Registering Leo with Windows</title>
         <link rel="stylesheet" href="http://leo-editor.github.io/theme/css/main.css" />
         <link href="http://leo-editor.github.io/feeds\all.atom.xml" type="application/atom+xml" rel="alternate" title="Leo Blog Atom Feed" />
 
@@ -16,13 +16,18 @@
                 <h1><a href="http://leo-editor.github.io/">Leo Blog </a></h1>
                 <nav><ul>
                     <li><a href="http://leo-editor.github.io/category/plugins.html">plugins</a></li>
-                    <li><a href="http://leo-editor.github.io/category/scripts.html">scripts</a></li>
+                    <li class="active"><a href="http://leo-editor.github.io/category/scripts.html">scripts</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://leo-editor.github.io/register_leo.html" rel="bookmark"
+           title="Permalink to Registering Leo with Windows">Registering Leo with Windows</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="http://leo-editor.github.io/register_leo.html">Registering Leo with Windows</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2013-11-28T00:00:00">
                 Thu 28 November 2013
@@ -33,7 +38,7 @@
         </address>
 <p>In <a href="http://leo-editor.github.io/category/scripts.html">scripts</a>. </p>
 <p>tags: <a href="http://leo-editor.github.io/tag/windows.html">Windows</a><a href="http://leo-editor.github.io/tag/install.html">install</a><a href="http://leo-editor.github.io/tag/scripts.html">scripts</a></p>
-</footer><!-- /.post-info --><p><em>a post in progress</em></p>
+</footer><!-- /.post-info -->      <p><em>a post in progress</em></p>
 <p>Installing Leo using the standard setup program from Sourceforge does nice things like create Start Menu &amp; Desktop shortcuts and enable open Leo files with a simple double-click. For those that like to run from source code or a portable drive there are <a href="http://leoeditor.com/installing.html#installing-from-sources-windows">manual instructions</a> for doing the same, but it's fiddly and rapidly gets old. Why repeat when automation is possible?</p>
 <p>Introducing <strong><a href="http://bazaar.launchpad.net/~leo-editor-team/leo-editor/trunk3/view/head:/leo/scripts/register-leo.leox">register-leo.leox</a></strong> (and <a href="http://bazaar.launchpad.net/~leo-editor-team/leo-editor/trunk3/view/head:/leo/scripts/unregister-leo.leox">unregister-leo</a>): which creates the necessary Windows registry keys for integration with Explorer and friends. After running this script .leo and .leox files are shown with the Leo icon, and double-clicking on them will open them in Leo.</p>
 <p>To use: open a command shell with administrative rights, and run:</p>
@@ -77,132 +82,11 @@
 <h3>Resources used</h3>
 <p>http://superuser.com/questions/88491/force-cmd-exe-to-run-as-admin/<br />
 http://stackoverflow.com/questions/2331690/how-to-set-a-icon-file-while-creating-file<br />
-http://stackoverflow.com/questions/771689/how-can-i-set-an-icon-for-my-own-file-extension</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+http://stackoverflow.com/questions/771689/how-can-i-set-an-icon-for-my-own-file-extension</p>
+    </div><!-- /.entry-content -->
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://leo-editor.github.io/nodewatch_productivity.html" rel="bookmark"
-                           title="Permalink to Nodewatch for Productivity">Nodewatch for Productivity</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-11-04T00:00:00">
-                Mon 04 November 2013
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="http://leo-editor.github.io/author/jacob-peck.html">Jacob Peck</a>
-        </address>
-<p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
-<p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info -->                <p class="first last">Using nodewatch.py (with todo.py) for productivity</p>
-
-                <a class="readmore" href="http://leo-editor.github.io/nodewatch_productivity.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://leo-editor.github.io/bookmarks_video.html" rel="bookmark"
-                           title="Permalink to Leo editor bookmarks plugin demo on Vimeo">Leo editor bookmarks plugin demo on Vimeo</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-10-24T00:00:00">
-                Thu 24 October 2013
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="http://leo-editor.github.io/author/terry-brown.html">Terry Brown</a>
-        </address>
-<p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
-<p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info -->                <p class="first last">A video demonstrating the use of bookmarks.py</p>
-
-                <a class="readmore" href="http://leo-editor.github.io/bookmarks_video.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://leo-editor.github.io/custom_printing.html" rel="bookmark"
-                           title="Permalink to Custom Printing with printing.py">Custom Printing with printing.py</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-09-20T00:00:00">
-                Fri 20 September 2013
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="http://leo-editor.github.io/author/jacob-peck.html">Jacob Peck</a>
-        </address>
-<p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
-<p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info -->                <p class="first last">Print custom documents with Leo's printing plugin</p>
-
-                <a class="readmore" href="http://leo-editor.github.io/custom_printing.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://leo-editor.github.io/valuespace-intro.html" rel="bookmark"
-                           title="Permalink to Valuespace, the spreadsheet in your outliner">Valuespace, the spreadsheet in your outliner</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-05-10T22:34:00">
-                Fri 10 May 2013
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="http://leo-editor.github.io/author/ville-vainio.html">Ville Vainio</a>
-        </address>
-<p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
-<p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info -->                <p class="first last">Introducing the valuespace plugin</p>
-
-                <a class="readmore" href="http://leo-editor.github.io/valuespace-intro.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="http://leo-editor.github.io/screen_capture.html" rel="bookmark"
-                           title="Permalink to screen_capture">screen_capture</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2013-04-20T00:00:00">
-                Sat 20 April 2013
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="http://leo-editor.github.io/author/terry-brown.html">Terry Brown</a>
-        </address>
-<p>In <a href="http://leo-editor.github.io/category/plugins.html">plugins</a>. </p>
-<p>tags: <a href="http://leo-editor.github.io/tag/plugins.html">plugins</a></p>
-</footer><!-- /.post-info -->                <p class="first last">Captures images of the Leo window</p>
-
-                <a class="readmore" href="http://leo-editor.github.io/screen_capture.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 1
-</p>
-            </section><!-- /#content -->
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>
