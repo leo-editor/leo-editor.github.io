@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Leo Blog</title><link href="/" rel="alternate"></link><link href="/feeds/yeah.atom.xml" rel="self"></link><id>/</id><updated>2010-10-03T10:20:00+02:00</updated><entry><title>First post</title><link href="/my-super-post.html" rel="alternate"></link><updated>2010-10-03T10:20:00+02:00</updated><author><name>Alexis Metaireau</name></author><id>tag:,2010-10-03:my-super-post.html</id><summary type="html">&lt;div class="section" id="welcome-to-leo-blog"&gt;
-&lt;h2&gt;Welcome to leo blog&lt;/h2&gt;
-&lt;p&gt;Various matters will be discussed here&lt;/p&gt;
-&lt;/div&gt;
-</summary><category term="thats"></category><category term="awesome"></category></entry></feed>

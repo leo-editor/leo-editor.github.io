@@ -1,9 +1,7 @@
-leo-blog
-========
+Leo Editor Github Websites
+==========================
 
-Blog source code
-
-Publishing to the leo-blog
---------------------------
-Please see the publishing instructions at the leo-editor/leo-blog.git repo:
-https://github.com/leo-editor/leo-blog#how-to-publish-on-the-leo-blog
+ - [**Main website**](./leo-editor) - repo: https://github.com/leo-editor/leo-editor/tree/gh-pages
+ - **Leo Editor development**: https://github.com/leo-editor/leo-editor
+ - [Blog](./blog) - repo: https://github.com/leo-editor/blog
+ - [(this index)](./) - repo: https://github.com/leo-editor/leo-editor.github.io 
